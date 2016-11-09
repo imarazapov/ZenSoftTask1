@@ -1,0 +1,9 @@
+package com.company.tools.engine;
+
+import com.company.tools.Tool;
+
+/**
+ * Created by hanaria on 11/8/16.
+ */
+public class Google extends Tool {
+}
