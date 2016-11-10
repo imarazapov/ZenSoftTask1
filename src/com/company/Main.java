@@ -52,7 +52,7 @@ public class Main {
                 yandexes.add(yandex);
             }
             Document ramblerDocument = Jsoup.connect(RAMBLER + filename).userAgent(LinuxUSER).get();
-            System.out.println("Yandex searching...");
+            System.out.println("Rambler searching...");
             Elements ramblerElements = ramblerDocument.select("div.b-serp-list").select("div.b-serp-item");
 
             for (Element element : ramblerElements) {
@@ -74,11 +74,11 @@ public class Main {
                 googles.add(google);
             }
 
-            System.out.println(yandexes.get(0).getName() + " first result's Title - " + yandexes.get(0).getTitle() + " URL: " + yandexes.get(0).getUrl());
 
-            System.out.println(ramblers.get(0).getName() + " result's Title - " + ramblers.get(0).getTitle() + " URL: " + ramblers.get(0).getUrl());
-
-            System.out.println(googles.get(0).getName() + " result's Title - " + googles.get(0).getTitle() + " URL: " + googles.get(0).getUrl());
+            String template =" first result's title - %s URL: %s";
+            System.out.println(String.format(template, yandexes.get(0).getName(), yandexes.get(0).getUrl()));
+            System.out.println(String.format(template, ramblers.get(0).getName(), ramblers.get(0).getUrl()));
+            System.out.println(String.format(template, googles.get(0).getName(), googles.get(0).getUrl()));
 
         } catch (IOException e) {
             e.printStackTrace();
